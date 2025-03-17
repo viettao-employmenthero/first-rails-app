@@ -76,3 +76,5 @@ gem "jwt", "~> 2.10"
 source 'https://gem.fury.io/eh-devops/' do
   gem 'google_json_response'
 end
+
+gem 'pundit'

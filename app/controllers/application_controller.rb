@@ -1,5 +1,11 @@
+
 # application controller
 class ApplicationController < ActionController::API
+  include Pundit
+
+  # Rescue from Pundit errors
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   def authenticate_user
     header = request.headers['Authorization']
     return render json: { error: 'Unauthorized' }, status: :unauthorized unless header
@@ -21,4 +27,10 @@ class ApplicationController < ActionController::API
   def decode_token(token)
     JWT.decode(token, Rails.application.secret_key_base, true, algorithm: 'HS256').first
   end
+
+  def user_not_authorized
+    render json: { error: 'You are not authorized to perform this action.' }, status: :forbidden
+  end
+
+  attr_reader :current_user
 end

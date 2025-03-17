@@ -14,7 +14,15 @@ module Api
 
       def show
         comment = Comment.find(params[:id])
+        authorize comment
         render json: comment
+      end
+
+      def destroy
+        comment = Comment.find(params[:id])
+        authorize comment
+        comment.destroy
+        head :no_content
       end
     end
   end

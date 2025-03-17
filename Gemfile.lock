@@ -1,4 +1,9 @@
 GEM
+  remote: https://gem.fury.io/eh-devops/
+  specs:
+    google_json_response (0.3.0)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.1.5.1)
@@ -300,6 +305,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  google_json_response!
   jbuilder
   jwt (~> 2.10)
   pg

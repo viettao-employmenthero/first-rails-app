@@ -6,7 +6,7 @@ class AuthenticationController < ApplicationController
 
     if user&.authenticate(params[:password])
       token = generate_token(user)
-      session[:user_id] = user.id
+      # session[:user_id] = user.id
       render json: { token: token, user: user }, status: :ok
     else
       render json: { error: 'Invalid credentials' }, status: :unauthorized

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       # rails can detect suitable HTTP method based on verbs
       resources :users, only: %i[create update show destroy]
       resources :posts, only: %i[index create update show destroy]
+      resources :comments, only: %i[index create update show destroy]
 
       # equivalent to:
       # post 'users', to: 'users#create'

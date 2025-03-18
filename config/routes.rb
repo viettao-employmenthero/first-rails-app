@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[create update show destroy]
       resources :posts, only: %i[index create update show destroy]
       resources :comments, only: %i[index create update show destroy]
+      resources :categories, only: %i[index create update show destroy]
 
       # equivalent to:
       # post 'users', to: 'users#create'

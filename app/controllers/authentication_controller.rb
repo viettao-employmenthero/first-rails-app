@@ -6,14 +6,13 @@ class AuthenticationController < ApplicationController
 
     if user&.authenticate(params[:password])
       token = generate_token(user)
-      # session[:user_id] = user.id
       render json: { token: token, user: user }, status: :ok
     else
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
   end
 
-  private
+  # private
 
   def generate_token(user)
     payload = { user_id: user.id, role: user.role, exp: 24.hours.from_now.to_i }

@@ -14,6 +14,11 @@ module Api
         render json: { error: e.message }, status: :unprocessable_entity
       end
 
+      def show
+        post = Post.find(params[:id])
+        render json: post
+      end
+
       def destroy
         post = Post.find(params[:id])
         post.destroy

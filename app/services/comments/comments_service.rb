@@ -29,7 +29,7 @@ module Comments
         end
       end
 
-      @comment_params.permit(:content, :post_id, :parent_id)
+      ActionController::Parameters.new(@comment_params).permit(:content, :post_id, :parent_id)
     end
   end
 end

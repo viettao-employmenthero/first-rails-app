@@ -5,7 +5,5 @@ module Replies
       @user = user
       @reply_params = reply_params
     end
-
-
   end
 end
